@@ -1,0 +1,191 @@
+{
+  "farmingTypes": [
+    {
+      "id": "precision-agriculture",
+      "title": "Precision Agriculture (Site-Specific Farming)",
+      "category": "AI & Data-Driven",
+      "waterSavings": "30–50%",
+      "yieldBoost": "+15–30%",
+      "initialCost": "Medium (Sensors/Drones via CHC rental)",
+      "govtSubsidy": "SMAM & PMKSY (40–55%)",
+      "summary": "Uses GPS, soil moisture sensors, drone NDVI imagery, and variable-rate fertilizer application to deliver exact water and nutrients only where each patch of the field needs it.",
+      "bestFor": ["Wheat", "Rice", "Cotton", "Sugarcane", "Orchards"],
+      "howToStart": [
+        "Start with a free Soil Health Card test to map N-P-K zones.",
+        "Use free satellite NDVI apps or rent Kisan Drones via Custom Hiring Centres (CHCs).",
+        "Pair drip lines with low-cost soil moisture tensiometers."
+      ]
+    },
+    {
+      "id": "hydroponics",
+      "title": "Hydroponics (Soilless Nutrient-Film Farming)",
+      "category": "Controlled Environment",
+      "waterSavings": "80–90%",
+      "yieldBoost": "+200–300% per sq.m",
+      "initialCost": "Medium–High (Rs. 1.5–4 lakh for small commercial unit)",
+      "govtSubsidy": "MIDH Protected Cultivation (up to 50%)",
+      "summary": "Grows high-value vegetables and herbs in mineral nutrient-rich water solutions (NFT channels, Deep Water Culture, or Cocopeat Dutch Buckets) with zero soil-borne disease.",
+      "bestFor": ["Lettuce", "Cherry Tomato", "Bell Pepper", "Strawberry", "Basil", "Spinach"],
+      "howToStart": [
+        "Begin with a 50–100 plant Kratky or NFT pilot frame using an EC & pH meter.",
+        "Target urban supermarkets, restaurants, and direct D2C subscriptions."
+      ]
+    },
+    {
+      "id": "polyhouse",
+      "title": "Polyhouse & Shade-Net Protected Cultivation",
+      "category": "Protected Cultivation",
+      "waterSavings": "50–65%",
+      "yieldBoost": "+150–250%",
+      "initialCost": "High (Rs. 8–10 lakh per 1000 sq.m before subsidy)",
+      "govtSubsidy": "MIDH / National Horticulture Board (50%–75% state-dependent)",
+      "summary": "Naturally ventilated UV-stabilized polyhouses shield high-value off-season crops from extreme heat, hailstorms, and virus vectors like whiteflies.",
+      "bestFor": ["Colored Capsicum", "English Cucumber", "Tomato", "Gerbera", "Rose"],
+      "howToStart": [
+        "Apply for MIDH/NHB subsidy on your State Horticulture portal before construction.",
+        "Use drip fertigation with water-soluble fertilizers (19:19:19, 13:0:45)."
+      ]
+    },
+    {
+      "id": "drip-fertigation",
+      "title": "Drip Irrigation & Automated Fertigation",
+      "category": "Water Conservation",
+      "waterSavings": "45–60%",
+      "yieldBoost": "+25–45%",
+      "initialCost": "Low–Medium (Rs. 25,000–45,000/acre after subsidy)",
+      "govtSubsidy": "PMKSY Per Drop More Crop (55%–90%)",
+      "summary": "Delivers water and dissolved fertilizers directly to the active root zone drop-by-drop via venturi injectors, cutting weed growth and fertilizer runoff.",
+      "bestFor": ["Sugarcane", "Cotton", "Banana", "Mango", "Pomegranate", "Onion", "Tomato"],
+      "howToStart": [
+        "Register on State DBT Micro-Irrigation portal with land record and empaneled vendor quotation.",
+        "Add a Venturi injector to feed liquid fertilizers directly through the drip mainline."
+      ]
+    },
+    {
+      "id": "natural-zbnf",
+      "title": "Natural Farming (ZBNF / Bharatiya Prakritik Krishi)",
+      "category": "Regenerative & Organic",
+      "waterSavings": "25–35% (via mulching)",
+      "yieldBoost": "Lower input cost by 50–70%",
+      "initialCost": "Very Low (On-farm cow-based inputs)",
+      "govtSubsidy": "PKVY / National Mission on Natural Farming (Rs. 31,500/ha)",
+      "summary": "Eliminates synthetic chemicals using 4 pillars: Beejamrit (seed treatment), Jeevamrit (microbial soil booster), Acchadana (crop residue mulching), and Whapasa (soil aeration).",
+      "bestFor": ["Pulses", "Millets", "Wheat", "Vegetables", "Spices", "Orchards"],
+      "howToStart": [
+        "Prepare Jeevamrit drum (cow dung, cow urine, jaggery, pulse flour, living soil) and apply with irrigation.",
+        "Form a 20-farmer cluster to avail PKVY PGS-India organic certification."
+      ]
+    },
+    {
+      "id": "integrated-farming",
+      "title": "Integrated Farming System (IFS — Crop + Dairy + Poultry/Fish)",
+      "category": "Circular Economy",
+      "waterSavings": "20–30%",
+      "yieldBoost": "+60–100% net farm income stability",
+      "initialCost": "Medium (Modular expansion)",
+      "govtSubsidy": "RKVY, NABARD Dairy & PM Matsya Sampada Yojana",
+      "summary": "Recycles waste from one enterprise as input for another: crop residue feeds dairy cattle, cow dung runs biogas & vermicompost, and pond silt fertilizes horticulture.",
+      "bestFor": ["Small & Marginal Farmers (1–5 acres)"],
+      "howToStart": [
+        "Integrate 2–3 milch cows or a farm pond with fisheries + border fruit trees.",
+        "Add a low-cost vermicompost pit to convert manure into high-value organic fertilizer."
+      ]
+    },
+    {
+      "id": "vertical-aeroponics",
+      "title": "Vertical Farming & Aeroponics",
+      "category": "Urban & Seed Tech",
+      "waterSavings": "90–95%",
+      "yieldBoost": "Up to 10x per sq.m (stacked layers)",
+      "initialCost": "High",
+      "govtSubsidy": "Startup India / AIF / State Agri-Tech Grants",
+      "summary": "Roots hang suspended in air and receive ultra-fine nutrient mist under spectrum-tuned LEDs — widely used in India for virus-free Potato mini-tuber seed production and leafy greens.",
+      "bestFor": ["Potato Seed Mini-Tubers", "Microgreens", "Saffron", "Leafy Greens"],
+      "howToStart": [
+        "Take training at CPRI (Central Potato Research Institute) or IIHR Bengaluru before investing.",
+        "Focus on high-margin seed tubers or urban microgreens with guaranteed buyers."
+      ]
+    },
+    {
+      "id": "agroforestry",
+      "title": "Agroforestry & Multi-Layer Orchard Intercropping",
+      "category": "Climate-Resilient",
+      "waterSavings": "20–30%",
+      "yieldBoost": "Dual short-term + long-term timber/fruit income",
+      "initialCost": "Low",
+      "govtSubsidy": "Sub-Mission on Agroforestry (SMAF)",
+      "summary": "Combines high-value trees (Poplar, Melia Dubia, Teak, Mango, Amla, Sandalwood) with intercrops like turmeric, ginger, wheat, or pulses for shade-tolerant multi-tier income.",
+      "bestFor": ["Turmeric/Ginger under Orchards", "Poplar + Wheat", "Bamboo + Pulses"],
+      "howToStart": [
+        "Plant fast-growing boundary trees first to act as windbreaks and carbon credits.",
+        "Match shade-loving intercrops (turmeric, ginger, colocasia) once canopy closes."
+      ]
+    }
+  ],
+  "dailyAdvancements": [
+    {
+      "id": "kisan-drones",
+      "title": "Kisan Agri-Drones & Nano-Urea Aerial Spraying",
+      "domain": "Robotics & Aviation",
+      "impact": "Sprays 1 acre in 7–10 minutes with 90% less water and zero operator chemical exposure.",
+      "accessibility": "Available on rent via FPOs/CHCs (~Rs. 400–600/acre); 50–80% SMAM subsidy.",
+      "summary": "DGCA-certified agricultural drones pair with IFFCO Nano Urea / Nano DAP to deliver uniform ultra-low-volume foliar sprays even in tall sugarcane and muddy paddy fields."
+    },
+    {
+      "id": "ai-computer-vision",
+      "title": "Smartphone AI Crop Disease & Pest Diagnostics",
+      "domain": "Deep Learning & Computer Vision",
+      "impact": "Instant leaf diagnosis in <3 seconds prevents 20–40% yield loss from late treatment.",
+      "accessibility": "100% Free via open-source tools like KrishiAI (HuggingFace Vision models).",
+      "summary": "Deep learning classifiers trained on 100,000+ South Asian crop leaf images identify blights, rusts, and viruses directly from a farmer's smartphone camera."
+    },
+    {
+      "id": "iot-soil-weather",
+      "title": "Low-Cost IoT Soil Moisture & Automatic Pump Controllers",
+      "domain": "IoT & Automation",
+      "impact": "Prevents over-irrigation, saves 35% electricity/water, and stops dry-run motor burnout.",
+      "accessibility": "GSM mobile pump starters cost Rs. 3,000–6,000; IoT sensor nodes Rs. 8,000–15,000.",
+      "summary": "Farmers turn borewell pumps ON/OFF via missed call or smartphone app while automated soil sensors trigger drip valves only when root-zone moisture dips below threshold."
+    },
+    {
+      "id": "satellite-ndvi",
+      "title": "Satellite NDVI Crop Health & Yield Monitoring",
+      "domain": "Remote Sensing & GIS",
+      "impact": "Detects water stress, nutrient deficiency, or pest patches 7–10 days before visible to the eye.",
+      "accessibility": "Free Sentinel-2 imagery & open-source GIS platforms.",
+      "summary": "Multispectral satellite indices (NDVI, NDWI) track biomass vigor across entire villages, powering faster PMFBY crop insurance claim verification and precision scouting."
+    },
+    {
+      "id": "solar-pm-kusum",
+      "title": "Solar Water Pumps & Agrivoltaics (PM-KUSUM)",
+      "domain": "Clean Energy",
+      "impact": "Eliminates diesel costs and daytime power cuts; surplus power can be sold back to the grid.",
+      "accessibility": "Up to 60% Central + State subsidy under PM-KUSUM.",
+      "summary": "Standalone 3–7.5 HP solar pumps deliver reliable daytime irrigation, while elevated agrivoltaic panels let shade-tolerant crops grow directly underneath solar arrays."
+    },
+    {
+      "id": "solar-cold-storage",
+      "title": "Decentralized Solar Cold Storage (On-Farm Micro-Chillers)",
+      "domain": "Post-Harvest Tech",
+      "impact": "Extends tomato, onion, and fruit shelf-life by 3–5×, eliminating distress mandi selling.",
+      "accessibility": "Eligible for 3% interest subvention & credit guarantee under AIF.",
+      "summary": "Thermal-battery solar cold rooms operate off-grid at the village/FPO level, allowing farmers to hold perishable harvests until mandi prices recover."
+    },
+    {
+      "id": "enam-digital-mandi",
+      "title": "e-NAM Digital Auctions & AI Price Forecasting",
+      "domain": "Agri-FinTech & Markets",
+      "impact": "Transparent pan-India bidding, electronic weighing, and instant DBT settlement.",
+      "accessibility": "100% Free registration at enam.gov.in.",
+      "summary": "Combines live APMC mandi arrivals with time-series ML price forecasting so farmers can decide whether to sell immediately, hold, or sell to higher-paying nearby mandis."
+    },
+    {
+      "id": "nano-fertilizers",
+      "title": "Nano Urea, Nano DAP & Biological Consortia",
+      "domain": "Nano-Biotechnology",
+      "impact": "A 500 ml bottle replaces a 45 kg Urea bag, slashing transport cost and groundwater nitrate leaching.",
+      "accessibility": "Widely available at PACS, IFFCO centres (~Rs. 225–600/bottle).",
+      "summary": "Nano-sized nutrient particles (20–50 nm) achieve >80% foliar absorption efficiency compared to 30–40% for conventional granular urea."
+    }
+  ]
+}

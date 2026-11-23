@@ -1,0 +1,33 @@
+# KrishiAI Python AI/ML/DL Microservice Dependencies (100% Free & Open Source)
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+pydantic==2.10.3
+pydantic-settings==2.7.0
+python-multipart==0.0.19
+httpx==0.28.1
+
+# Data Science & Machine Learning
+numpy>=1.26.0
+pandas>=2.2.0
+scipy>=1.13.0
+scikit-learn>=1.5.0
+joblib>=1.4.0
+lightgbm>=4.5.0
+
+# Computer Vision & Image Processing
+Pillow>=10.4.0
+opencv-python-headless>=4.10.0
+
+# Deep Learning & HuggingFace Pretrained Models
+# (Install CPU or CUDA PyTorch build appropriate for your machine)
+torch>=2.3.0
+torchvision>=0.18.0
+transformers>=4.46.0
+accelerate>=1.1.0
+timm>=1.0.11
+huggingface-hub>=0.26.0
+safetensors>=0.4.5
+sentencepiece>=0.2.0
+
+# Testing
+pytest>=8.3.0

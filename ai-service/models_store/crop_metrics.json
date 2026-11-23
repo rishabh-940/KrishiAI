@@ -1,0 +1,6 @@
+{
+  "engine": "RandomForestClassifier",
+  "num_crops": 14,
+  "training_samples": 2520,
+  "validation_accuracy": 0.8075
+}

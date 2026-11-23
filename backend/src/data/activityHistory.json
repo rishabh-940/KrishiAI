@@ -1,0 +1,114 @@
+[
+  {
+    "id": "act_1795463612391",
+    "timestamp": "2026-11-23T19:53:32.391Z",
+    "type": "price_forecast",
+    "title": "Potato (Sheoraphuli, West Bengal)",
+    "summary": "Forecast avg Rs. 1440.52/Qtl — SELL EARLY"
+  },
+  {
+    "id": "act_1795463516460",
+    "timestamp": "2026-11-23T19:51:56.460Z",
+    "type": "price_forecast",
+    "title": "Tomato (Binny Mill (F&V), Karnataka)",
+    "summary": "Forecast avg Rs. 1404.56/Qtl — HOLD / STAGGERED SELL"
+  },
+  {
+    "id": "act_1795463481951",
+    "timestamp": "2026-11-23T19:51:21.951Z",
+    "type": "price_forecast",
+    "title": "Wheat (Kota (FV), Rajasthan)",
+    "summary": "Forecast avg Rs. 2763.66/Qtl — STABLE / SELL IN BATCHES"
+  },
+  {
+    "id": "act_1795462919142",
+    "timestamp": "2026-11-23T19:41:59.142Z",
+    "type": "crop_recommendation",
+    "title": "Top Recommended Crop: Chickpea (Chana)",
+    "summary": "Soil Grade B+ (Good)"
+  },
+  {
+    "id": "act_1795462899891",
+    "timestamp": "2026-11-23T19:41:39.891Z",
+    "type": "crop_recommendation",
+    "title": "Top Recommended Crop: Wheat",
+    "summary": "Soil Grade A (Optimal)"
+  },
+  {
+    "id": "act_1795462873827",
+    "timestamp": "2026-11-23T19:41:13.827Z",
+    "type": "price_forecast",
+    "title": "Onion (Jaipur (F&V), Rajasthan)",
+    "summary": "Forecast avg Rs. 1962.11/Qtl — SELL EARLY"
+  },
+  {
+    "id": "act_1795462865923",
+    "timestamp": "2026-11-23T19:41:05.923Z",
+    "type": "price_forecast",
+    "title": "Rice (Lucknow, Uttar Pradesh)",
+    "summary": "Forecast avg Rs. 2743.47/Qtl — STABLE / SELL IN BATCHES"
+  },
+  {
+    "id": "act_1795462839652",
+    "timestamp": "2026-11-23T19:40:39.652Z",
+    "type": "price_forecast",
+    "title": "Wheat (Meerut, Uttar Pradesh)",
+    "summary": "Forecast avg Rs. 2844.63/Qtl — STABLE / SELL IN BATCHES"
+  },
+  {
+    "id": "act_1795462800028",
+    "timestamp": "2026-11-23T19:40:00.028Z",
+    "type": "chemical_chat",
+    "title": "Agro-Chemical Chat (Mustard)",
+    "summary": "गेहूं में पीला रतुआ (Yellow Rust) के लिए सही दवाई और मात्रा बताएं"
+  },
+  {
+    "id": "act_1795462792739",
+    "timestamp": "2026-11-23T19:39:52.739Z",
+    "type": "chemical_chat",
+    "title": "Agro-Chemical Chat (Mustard)",
+    "summary": "hi"
+  },
+  {
+    "id": "act_1795462720236",
+    "timestamp": "2026-11-23T19:38:40.237Z",
+    "type": "disease_scan",
+    "title": "Potato — Yellow Leaf Curl Mosaic",
+    "summary": "Confidence 66.9% (Moderate (44% leaf area affected))"
+  },
+  {
+    "id": "act_1795462686784",
+    "timestamp": "2026-11-23T19:38:06.784Z",
+    "type": "disease_scan",
+    "title": "Tomato — Yellow Leaf Curl Mosaic",
+    "summary": "Confidence 66.9% (Moderate (44% leaf area affected))"
+  },
+  {
+    "id": "act_1795462669440",
+    "timestamp": "2026-11-23T19:37:49.440Z",
+    "type": "disease_scan",
+    "title": "Tomato — Yellow Leaf Curl Mosaic",
+    "summary": "Confidence 66.9% (Moderate (44% leaf area affected))"
+  },
+  {
+    "id": "act_1795462649679",
+    "timestamp": "2026-11-23T19:37:29.679Z",
+    "type": "disease_scan",
+    "title": "Tomato — Yellow Leaf Curl Mosaic",
+    "summary": "Confidence 66.9% (Moderate (44% leaf area affected))"
+  },
+  {
+    "id": "act_1795462643436",
+    "timestamp": "2026-11-23T19:37:23.436Z",
+    "type": "disease_scan",
+    "title": "Tomato — Yellow Leaf Curl Mosaic",
+    "summary": "Confidence 66.9% (Moderate (44% leaf area affected))"
+  },
+  {
+    "id": "act_1795462600570",
+    "timestamp": "2026-11-23T19:36:40.570Z",
+    "type": "disease_scan",
+    "title": "Tomato — Yellow Leaf Curl Mosaic",
+    "summary": "Confidence 66.9% (Moderate (44% leaf area affected))"
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "engine": "HistGradientBoosting+FourierRidge",
+  "series_trained": 20,
+  "total_rows": 4280,
+  "validation_mae_rs_qtl": 137.18,
+  "validation_rmse_rs_qtl": 198.35,
+  "validation_mape_pct": 3.45,
+  "validation_r2": 0.9906
+}

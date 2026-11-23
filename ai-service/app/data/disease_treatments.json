@@ -1,0 +1,114 @@
+{
+  "healthy": {
+    "severity": "None (Healthy)",
+    "summary": "Leaf tissue shows uniform healthy chlorophyll levels with minimal chlorosis or necrotic lesions.",
+    "immediate_actions": [
+      "Continue routine scouting once a week on both upper and lower leaf surfaces.",
+      "Maintain balanced irrigation and avoid waterlogging around the root zone."
+    ],
+    "chemical_remedies": ["No chemical spray required at this stage."],
+    "organic_remedies": ["Optional preventive spray of Neem Oil (1500 ppm) @ 2 ml/liter every 15 days during high-pest season."],
+    "prevention_tips": [
+      "Follow crop rotation and use certified disease-free seeds.",
+      "Keep field bunds free of weeds that harbor sucking pests."
+    ]
+  },
+  "blight": {
+    "severity": "High",
+    "summary": "Fungal or oomycete blight causing dark water-soaked necrotic patches and progressive foliage dieback.",
+    "immediate_actions": [
+      "Remove and destroy severely infected lower leaves away from the field.",
+      "Stop overhead sprinkler irrigation immediately to reduce leaf wetness."
+    ],
+    "chemical_remedies": [
+      "Preventive/Early: Mancozeb 75% WP @ 2.5 g/liter water (500 g/acre).",
+      "Curative: Metalaxyl-M 4% + Mancozeb 64% WP @ 2.5 g/liter OR Azoxystrobin + Tebuconazole @ 1.5 ml/liter."
+    ],
+    "organic_remedies": [
+      "Spray Trichoderma viride @ 5 g/liter or Pseudomonas fluorescens @ 5 g/liter during early stages.",
+      "Copper-based Bordeaux mixture (1%) for organic orchards."
+    ],
+    "prevention_tips": [
+      "Maintain recommended plant spacing for airflow.",
+      "Treat seeds with Trichoderma (4 g/kg) or Carbendazim (2 g/kg) before sowing."
+    ]
+  },
+  "rust": {
+    "severity": "Moderate to High",
+    "summary": "Rust fungus producing orange, yellow, or reddish-brown powdery pustules that reduce photosynthesis and grain filling.",
+    "immediate_actions": [
+      "Inspect adjacent plots immediately as rust spores spread rapidly via wind.",
+      "Apply a systemic triazole fungicide within 48 hours of detection."
+    ],
+    "chemical_remedies": [
+      "Propiconazole 25% EC @ 1 ml/liter water (200 ml/acre).",
+      "Tebuconazole 25.9% EC @ 1 ml/liter water; repeat after 15 days if humid."
+    ],
+    "organic_remedies": [
+      "Wettable Sulphur 80% WP @ 2.5 g/liter (avoid spraying above 32°C).",
+      "Neem seed kernel extract (5%) as supplementary preventive."
+    ],
+    "prevention_tips": [
+      "Grow rust-resistant varieties recommended by ICAR/State Agricultural University.",
+      "Avoid excessive late nitrogen application."
+    ]
+  },
+  "leaf_spot": {
+    "severity": "Moderate",
+    "summary": "Fungal or bacterial leaf spots characterized by circular brown/black lesions often surrounded by yellow halos.",
+    "immediate_actions": [
+      "Prune heavily spotted leaves and avoid working in the field when foliage is wet.",
+      "Improve drainage and apply targeted protectant spray."
+    ],
+    "chemical_remedies": [
+      "Fungal spot: Carbendazim 12% + Mancozeb 63% WP @ 2 g/liter water.",
+      "Bacterial spot: Copper Oxychloride 50% WP @ 2.5 g/liter + Streptocycline @ 0.1 g/liter."
+    ],
+    "organic_remedies": [
+      "Pseudomonas fluorescens @ 5 g/liter foliar spray.",
+      "Neem oil (3 ml/liter) + mild soap emulsifier."
+    ],
+    "prevention_tips": [
+      "Use drip irrigation instead of flood/overhead watering.",
+      "Deep summer ploughing to bury infected crop residue."
+    ]
+  },
+  "mosaic_virus": {
+    "severity": "High",
+    "summary": "Viral infection causing yellow-green mottling, chlorosis, curling, and stunted growth; spread by whiteflies or aphids.",
+    "immediate_actions": [
+      "Rogue out (uproot and bury) severely infected plants early to stop field-wide spread.",
+      "Control insect vectors (whitefly/aphids) immediately."
+    ],
+    "chemical_remedies": [
+      "No direct chemical cure for plant viruses — target vectors with Imidacloprid 17.8% SL @ 0.5 ml/liter or Thiamethoxam 25% WG @ 0.5 g/liter."
+    ],
+    "organic_remedies": [
+      "Install 8-10 yellow sticky traps per acre.",
+      "Spray Neem oil (1500 ppm) @ 3 ml/liter or Verticillium lecanii @ 5 g/liter."
+    ],
+    "prevention_tips": [
+      "Raise seedlings under 40-mesh insect-proof net.",
+      "Select virus-tolerant hybrid seeds."
+    ]
+  },
+  "powdery_mildew": {
+    "severity": "Moderate",
+    "summary": "White powdery fungal coating on upper leaf surfaces and stems, thriving in warm days and cool dry nights.",
+    "immediate_actions": [
+      "Ensure good canopy ventilation and avoid excessive nitrogen.",
+      "Spray sulphur or systemic fungicide at first sign of white patches."
+    ],
+    "chemical_remedies": [
+      "Hexaconazole 5% EC @ 1.5 ml/liter OR Myclobutanil 10% WP @ 1 g/liter.",
+      "Wettable Sulphur 80% WP @ 2.5 g/liter."
+    ],
+    "organic_remedies": [
+      "Potassium bicarbonate (5 g/liter) or diluted buttermilk/milk spray (1:9 ratio) in early stages."
+    ],
+    "prevention_tips": [
+      "Avoid dense planting and shade.",
+      "Sanitize crop debris after harvest."
+    ]
+  }
+}
