@@ -25,6 +25,15 @@ export default function ModernFarming() {
     <div className="grid" style={{ gap: 18 }}>
       <ErrorBanner message={error} />
 
+      {/* Hero Banner — Precision & Sustainable Techniques */}
+      <div className="page-hero-banner" style={{ height: 215 }}>
+        <img
+          src="/images/modern-banner.png"
+          alt="Precision & Sustainable Techniques"
+          className="page-hero-img"
+        />
+      </div>
+
       <div className="card">
         <div className="card-header" style={{ marginBottom: 0 }}>
           <div className="card-title">

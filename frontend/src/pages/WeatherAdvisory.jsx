@@ -51,6 +51,15 @@ export default function WeatherAdvisory() {
 
   return (
     <div className="grid" style={{ gap: 20 }}>
+      {/* Hero Banner — Weather & Field Guidance */}
+      <div className="page-hero-banner" style={{ height: 215 }}>
+        <img
+          src="/images/weather-banner.png"
+          alt="Weather & Field Guidance"
+          className="page-hero-img"
+        />
+      </div>
+
       <div className="card">
         <div className="card-header">
           <div className="card-title">

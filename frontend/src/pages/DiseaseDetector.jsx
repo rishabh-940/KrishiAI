@@ -42,7 +42,17 @@ export default function DiseaseDetector() {
   }
 
   return (
-    <div className="grid grid-2">
+    <div className="grid" style={{ gap: 20 }}>
+      {/* Hero Banner — Crop Disease Diagnosis */}
+      <div className="page-hero-banner" style={{ height: 210 }}>
+        <img
+          src="/images/crop-disease-ai.webp"
+          alt="Crop Disease AI Computer Vision"
+          className="page-hero-img"
+        />
+      </div>
+
+      <div className="grid grid-2">
       <form className="card" onSubmit={handlePredict}>
         <div className="card-header">
           <div className="card-title">
@@ -197,5 +207,6 @@ export default function DiseaseDetector() {
         )}
       </div>
     </div>
+  </div>
   );
 }

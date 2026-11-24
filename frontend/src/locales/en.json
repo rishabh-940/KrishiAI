@@ -16,7 +16,7 @@
   "nav": {
     "dashboard": "Dashboard",
     "disease": "Crop Disease AI",
-    "schemes": "Govt Schemes (AgriParam)",
+    "schemes": "Govt Schemes",
     "chemicals": "Chemicals & NPK Chat",
     "prices": "Mandi Price Forecast",
     "recommender": "Smart Crop ML",
@@ -87,7 +87,7 @@
         "desc": "Dual HuggingFace Vision DL models (94 + 38 classes)"
       },
       "schemes": {
-        "title": "Govt Schemes (AgriParam)",
+        "title": "Govt Schemes ",
         "desc": "BharatGen AgriParam LLM + PM-KISAN / PMFBY / KCC"
       },
       "chemicals": {

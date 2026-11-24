@@ -36,7 +36,17 @@ export default function CropRecommender() {
   }
 
   return (
-    <div className="grid grid-2">
+    <div className="grid" style={{ gap: 20 }}>
+      {/* Hero Banner — Crop Selection & Reference Library */}
+      <div className="page-hero-banner" style={{ height: 215 }}>
+        <img
+          src="/images/recommender-banner.png"
+          alt="Crop Selection & Soil ML"
+          className="page-hero-img"
+        />
+      </div>
+
+      <div className="grid grid-2">
       <form className="card" onSubmit={handleSubmit}>
         <div className="card-header">
           <div className="card-title">
@@ -139,5 +149,6 @@ export default function CropRecommender() {
         )}
       </div>
     </div>
+  </div>
   );
 }
