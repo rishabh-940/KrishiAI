@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import wheatLogo from "../assets/wheat-logo.jpeg";
 import {
   LayoutDashboard,
   ScanLine,
@@ -34,7 +35,11 @@ export default function Layout({ activeTab, setActiveTab, aiHealthy, children })
     <div className="app-shell">
       <aside className={`sidebar ${menuOpen ? "open" : ""}`}>
         <div className="brand">
-          <div className="brand-icon">K</div>
+          <img
+            src={wheatLogo}
+            alt="KrishiAI Wheat Logo"
+            className="brand-logo-img"
+          />
           <div>
             <h1>KrishiAI</h1>
             <span>100% Free Agri AI/ML/DL Suite</span>
