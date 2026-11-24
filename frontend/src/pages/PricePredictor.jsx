@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { TrendingUp } from "lucide-react";
 import {
   ResponsiveContainer,
@@ -14,6 +15,7 @@ import { krishiApi, extractErrorMessage } from "../services/api";
 import { LoadingSpinner, ErrorBanner } from "../components/Feedback";
 
 export default function PricePredictor() {
+  const { t } = useTranslation();
   const [meta, setMeta] = useState(null);
   const [state, setState] = useState("Rajasthan");
   const [commodity, setCommodity] = useState("Mustard");
@@ -83,7 +85,7 @@ export default function PricePredictor() {
       <form className="card" onSubmit={handlePredict}>
         <div className="card-header">
           <div className="card-title">
-            <TrendingUp size={19} color="var(--primary)" /> India Commodity Wise Mandi Price Forecast
+            <TrendingUp size={19} color="var(--primary)" /> {t("prices.title", "India Commodity Wise Mandi Price Forecast")}
           </div>
           <span className="badge">APMC Time-Series ML</span>
         </div>
@@ -92,7 +94,7 @@ export default function PricePredictor() {
 
         <div className="grid grid-4" style={{ alignItems: "end" }}>
           <div className="form-group">
-            <label>State</label>
+            <label>{t("prices.state", "State")}</label>
             <select className="select" value={state} onChange={(e) => setState(e.target.value)}>
               {(meta?.states || ["Rajasthan", "Maharashtra", "Punjab", "Madhya Pradesh", "Uttar Pradesh"]).map(
                 (st) => (
@@ -103,7 +105,7 @@ export default function PricePredictor() {
           </div>
 
           <div className="form-group">
-            <label>Commodity</label>
+            <label>{t("prices.commodity", "Commodity")}</label>
             <select className="select" value={commodity} onChange={(e) => setCommodity(e.target.value)}>
               {(availableCommodities.length ? availableCommodities : ["Wheat", "Mustard", "Onion", "Tomato"]).map(
                 (c) => (
@@ -114,10 +116,10 @@ export default function PricePredictor() {
           </div>
 
           <div className="form-group">
-            <label>Forecast Horizon</label>
+            <label>{t("prices.forecastDays", "Forecast Horizon")}</label>
             <select className="select" value={horizonDays} onChange={(e) => setHorizonDays(e.target.value)}>
-              <option value={14}>Next 14 Days</option>
-              <option value={30}>Next 30 Days</option>
+              <option value={14}>{t("prices.days15", "Next 14 Days")}</option>
+              <option value={30}>{t("prices.days30", "Next 30 Days")}</option>
               <option value={60}>Next 60 Days</option>
               <option value={90}>Next 90 Days</option>
             </select>
@@ -125,7 +127,7 @@ export default function PricePredictor() {
 
           <div className="form-group">
             <button className="btn btn-primary" type="submit" disabled={loading} style={{ width: "100%" }}>
-              {loading ? "Forecasting..." : "Predict Mandi Price"}
+              {loading ? t("prices.btnForecasting", "Forecasting...") : t("prices.btnForecast", "Predict Mandi Price")}
             </button>
           </div>
         </div>

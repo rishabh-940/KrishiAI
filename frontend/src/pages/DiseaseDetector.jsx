@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Upload, ShieldCheck, AlertTriangle, Leaf } from "lucide-react";
 import { krishiApi, extractErrorMessage } from "../services/api";
 import { LoadingSpinner, ErrorBanner } from "../components/Feedback";
 
 export default function DiseaseDetector() {
+  const { t } = useTranslation();
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState("");
   const [modelChoice, setModelChoice] = useState("ensemble");
@@ -44,7 +46,7 @@ export default function DiseaseDetector() {
       <form className="card" onSubmit={handlePredict}>
         <div className="card-header">
           <div className="card-title">
-            <Leaf size={19} color="var(--primary)" /> Upload Plant / Crop Leaf Image
+            <Leaf size={19} color="var(--primary)" /> {t("disease.uploadTitle", "Upload Plant / Crop Leaf Image")}
           </div>
           <span className="badge">Dual HF Vision DL</span>
         </div>
@@ -60,7 +62,7 @@ export default function DiseaseDetector() {
           />
           <Upload size={28} color="var(--primary)" style={{ marginBottom: 6 }} />
           <div style={{ fontWeight: 700 }}>
-            {file ? file.name : "Click to upload leaf photo (JPEG, PNG, WEBP)"}
+            {file ? file.name : t("disease.uploadHelp", "Click to upload leaf photo (JPEG, PNG, WEBP)")}
           </div>
           <div style={{ fontSize: "0.78rem", color: "var(--text-muted)", marginTop: 4 }}>
             Clear close-up in daylight gives highest accuracy
@@ -69,36 +71,36 @@ export default function DiseaseDetector() {
         </label>
 
         <div className="form-group">
-          <label>Deep Learning Model Pipeline</label>
+          <label>{t("disease.modelChoice", "Deep Learning Model Pipeline")}</label>
           <select
             className="select"
             value={modelChoice}
             onChange={(e) => setModelChoice(e.target.value)}
           >
-            <option value="ensemble">Dual-Model Ensemble (Saon110 + Plant-Disease-Detector)</option>
+            <option value="ensemble">{t("disease.ensemble", "Dual-Model Ensemble (Saon110 + Plant-Disease-Detector)")}</option>
             <option value="primary">Saon110/bd-crop-vegetable-plant-disease-model (94 South Asian classes)</option>
             <option value="secondary">rarfileexe/Plant-Disease-Detector (MobileNetV2, 38 PlantVillage classes)</option>
           </select>
         </div>
 
         <div className="form-group">
-          <label>Crop Hint (Optional)</label>
+          <label>{t("disease.cropHint", "Crop Hint (Optional)")}</label>
           <input
             className="input"
-            placeholder="e.g., Tomato, Potato, Rice, Wheat, Cotton, Mango"
+            placeholder={t("disease.cropHintPlaceholder", "e.g., Tomato, Potato, Rice, Wheat, Cotton, Mango")}
             value={cropHint}
             onChange={(e) => setCropHint(e.target.value)}
           />
         </div>
 
         <button className="btn btn-primary" type="submit" disabled={loading} style={{ width: "100%" }}>
-          {loading ? "Analyzing Leaf with Deep Learning..." : "Diagnose Plant Disease"}
+          {loading ? t("disease.btnDiagnosing", "Analyzing Leaf with Deep Learning...") : t("disease.btnDiagnose", "Diagnose Plant Disease")}
         </button>
       </form>
 
       <div className="card">
         <div className="card-header">
-          <div className="card-title">AI Diagnosis & Treatment Plan</div>
+          <div className="card-title">{t("disease.resultsTitle", "AI Diagnosis & Treatment Plan")}</div>
           {result && <span className="badge blue">{result.inference_backend}</span>}
         </div>
 
@@ -106,8 +108,7 @@ export default function DiseaseDetector() {
 
         {!loading && !result && (
           <p style={{ color: "var(--text-muted)", fontSize: "0.9rem" }}>
-            Upload a leaf photo on the left to detect fungal, bacterial, or viral diseases, quantify
-            affected leaf area, and receive chemical + organic IPM remedies.
+            {t("disease.emptyState", "Upload a leaf photo on the left to detect fungal, bacterial, or viral diseases, quantify affected leaf area, and receive chemical + organic IPM remedies.")}
           </p>
         )}
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Landmark, ExternalLink, CheckCircle2 } from "lucide-react";
 import { krishiApi, extractErrorMessage } from "../services/api";
 import { LoadingSpinner, ErrorBanner } from "../components/Feedback";
@@ -11,14 +12,19 @@ const SAMPLE_PROMPTS = [
 ];
 
 export default function SchemesAdvisor() {
+  const { t, i18n } = useTranslation();
   const [query, setQuery] = useState(SAMPLE_PROMPTS[0]);
   const [crop, setCrop] = useState("Wheat");
   const [state, setState] = useState("Rajasthan");
-  const [language, setLanguage] = useState("en");
+  const [language, setLanguage] = useState(i18n.language?.startsWith("hi") ? "hi" : "en");
   const [result, setResult] = useState(null);
   const [catalog, setCatalog] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    setLanguage(i18n.language?.startsWith("hi") ? "hi" : "en");
+  }, [i18n.language]);
 
   useEffect(() => {
     krishiApi
@@ -46,7 +52,7 @@ export default function SchemesAdvisor() {
       <div className="card">
         <div className="card-header">
           <div className="card-title">
-            <Landmark size={19} color="var(--primary)" /> Government Schemes & Guidelines AI
+            <Landmark size={19} color="var(--primary)" /> {t("schemes.title", "Government Schemes & Guidelines AI")}
           </div>
           <span className="badge">Model: bharatgenai/AgriParam</span>
         </div>
@@ -64,24 +70,24 @@ export default function SchemesAdvisor() {
         <form onSubmit={handleSubmit}>
           <div className="grid grid-3">
             <div className="form-group">
-              <label>Crop</label>
+              <label>{t("common.crop", "Crop")}</label>
               <input className="input" value={crop} onChange={(e) => setCrop(e.target.value)} />
             </div>
             <div className="form-group">
-              <label>State</label>
+              <label>{t("common.state", "State")}</label>
               <input className="input" value={state} onChange={(e) => setState(e.target.value)} />
             </div>
             <div className="form-group">
-              <label>Response Language</label>
+              <label>{t("schemes.responseLanguage", "Response Language")}</label>
               <select className="select" value={language} onChange={(e) => setLanguage(e.target.value)}>
-                <option value="en">English</option>
-                <option value="hi">Hindi (हिंदी)</option>
+                <option value="en">{t("schemes.englishOption", "English")}</option>
+                <option value="hi">{t("schemes.hindiOption", "Hindi (हिंदी)")}</option>
               </select>
             </div>
           </div>
 
           <div className="form-group">
-            <label>Ask AgriParam about Subsidies, Insurance, Credit, or Guidelines</label>
+            <label>{t("schemes.askPrompt", "Ask AgriParam about Subsidies, Insurance, Credit, or Guidelines")}</label>
             <textarea
               className="textarea"
               rows={3}
@@ -92,7 +98,7 @@ export default function SchemesAdvisor() {
           </div>
 
           <button className="btn btn-primary" type="submit" disabled={loading}>
-            {loading ? "Consulting AgriParam AI..." : "Get Schemes & Guidelines"}
+            {loading ? t("schemes.btnAsking", "Consulting AgriParam AI...") : t("schemes.btnAsk", "Get Schemes & Guidelines")}
           </button>
         </form>
       </div>
@@ -102,12 +108,12 @@ export default function SchemesAdvisor() {
       {result && (
         <div className="card">
           <div className="card-header">
-            <div className="card-title">AgriParam Recommendation</div>
+            <div className="card-title">{t("schemes.recommendation", "AgriParam Recommendation")}</div>
             <span className="badge blue">{result.inference_backend}</span>
           </div>
           <p style={{ whiteSpace: "pre-wrap", marginBottom: 16 }}>{result.answer}</p>
 
-          <div style={{ fontWeight: 700, marginBottom: 8 }}>Action Checklist</div>
+          <div style={{ fontWeight: 700, marginBottom: 8 }}>{t("schemes.actionChecklist", "Action Checklist")}</div>
           <ul className="list-clean" style={{ marginBottom: 16 }}>
             {result.action_checklist.map((step, i) => (
               <li key={i}>
@@ -126,15 +132,16 @@ export default function SchemesAdvisor() {
                 </div>
                 <p style={{ fontSize: "0.84rem", margin: "8px 0" }}>{s.benefit_summary}</p>
                 <div style={{ fontSize: "0.78rem", color: "var(--text-muted)", marginBottom: 8 }}>
-                  <strong>Eligibility:</strong> {s.eligibility}
+                  <strong>{t("schemes.eligibility", "Eligibility")}:</strong> {s.eligibility}
                 </div>
                 <a
                   href={s.official_portal}
                   target="_blank"
                   rel="noreferrer"
-                  style={{ color: "var(--primary)", fontWeight: 700, fontSize: "0.82rem", display: "inline-flex", alignItems: "center", gap: 4 }}
+                  className="btn btn-secondary"
+                  style={{ display: "inline-flex", gap: 6, alignItems: "center", fontSize: "0.8rem", padding: "6px 12px" }}
                 >
-                  Official Portal <ExternalLink size={13} />
+                  <ExternalLink size={14} /> {t("schemes.applyOnline", "Apply on Official Portal")}
                 </a>
               </div>
             ))}
@@ -144,7 +151,9 @@ export default function SchemesAdvisor() {
 
       <div className="card">
         <div className="card-header">
-          <div className="card-title">Verified Indian Agricultural Schemes Directory ({catalog.length})</div>
+          <div className="card-title">
+            {t("schemes.verifiedDirectory", "Verified Indian Agricultural Schemes Directory")} ({catalog.length})
+          </div>
         </div>
         <div className="grid grid-3">
           {catalog.map((s) => (
