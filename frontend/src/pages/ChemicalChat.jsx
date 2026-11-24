@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { FlaskConical, Send, Calculator } from "lucide-react";
 import { krishiApi, extractErrorMessage } from "../services/api";
 import { ErrorBanner } from "../components/Feedback";
@@ -11,11 +12,15 @@ const QUICK_QS = [
 ];
 
 export default function ChemicalChat() {
+  const { t, i18n } = useTranslation();
+  const isHindi = i18n.language?.startsWith("hi");
+  
   const [messages, setMessages] = useState([
     {
       role: "assistant",
-      content:
-        "Namaste! Ask me anything about fertilizers (Urea/DAP/MOP/Nano Urea), pesticides, fungicides, exact dosages (ml/L), or safety intervals in Hindi or English.",
+      content: isHindi
+        ? "नमस्ते! मुझसे खाद (यूरिया/डीएपी/एमओपी/नैनो यूरिया), कीटनाशक, फफूंदनाशक, सटीक मात्रा (मिली/लीटर) या छिड़काव सुरक्षा अवधि के बारे में कुछ भी पूछें।"
+        : "Namaste! Ask me anything about fertilizers (Urea/DAP/MOP/Nano Urea), pesticides, fungicides, exact dosages (ml/L), or safety intervals in Hindi or English.",
     },
   ]);
   const [input, setInput] = useState("");
@@ -79,7 +84,7 @@ export default function ChemicalChat() {
       <div className="card">
         <div className="card-header">
           <div className="card-title">
-            <FlaskConical size={19} color="var(--primary)" /> Agro-Chemical & Pesticide AI Chat
+            <FlaskConical size={19} color="var(--primary)" /> {t("chemicals.title", "Agro-Chemical & Pesticide AI Chat")}
           </div>
           <span className="badge">me-nabi/farmer-advisory-hindi-qwen2.5-3b</span>
         </div>
@@ -88,15 +93,15 @@ export default function ChemicalChat() {
 
         <div className="grid grid-2" style={{ gap: 10 }}>
           <div className="form-group">
-            <label>Crop Context</label>
+            <label>{t("chemicals.cropContext", "Crop Context")}</label>
             <input className="input" value={crop} onChange={(e) => setCrop(e.target.value)} />
           </div>
           <div className="form-group">
-            <label>Language</label>
+            <label>{t("chemicals.language", "Language")}</label>
             <select className="select" value={language} onChange={(e) => setLanguage(e.target.value)}>
-              <option value="hi-en">Bilingual (Hindi + English)</option>
-              <option value="hi">Hindi (हिंदी)</option>
-              <option value="en">English</option>
+              <option value="hi-en">{t("chemicals.bilingual", "Bilingual (Hindi + English)")}</option>
+              <option value="hi">{t("chemicals.hindi", "Hindi (हिंदी)")}</option>
+              <option value="en">{t("chemicals.english", "English")}</option>
             </select>
           </div>
         </div>
@@ -115,7 +120,7 @@ export default function ChemicalChat() {
               {m.content}
             </div>
           ))}
-          {sending && <div className="chat-msg assistant">Generating ICAR/KVK advisory...</div>}
+          {sending && <div className="chat-msg assistant">{t("chemicals.generating", "Generating ICAR/KVK advisory...")}</div>}
         </div>
 
         <form
@@ -127,12 +132,12 @@ export default function ChemicalChat() {
         >
           <input
             className="input"
-            placeholder="Ask in Hindi, Hinglish, or English..."
+            placeholder={t("chemicals.chatPlaceholder", "Ask in Hindi, Hinglish, or English...")}
             value={input}
             onChange={(e) => setInput(e.target.value)}
           />
           <button className="btn btn-primary" type="submit" disabled={sending}>
-            <Send size={16} /> Send
+            <Send size={16} /> {t("common.send", "Send")}
           </button>
         </form>
 
@@ -160,7 +165,7 @@ export default function ChemicalChat() {
       <div className="card">
         <div className="card-header">
           <div className="card-title">
-            <Calculator size={19} color="var(--primary)" /> ICAR NPK Fertilizer Bag Calculator
+            <Calculator size={19} color="var(--primary)" /> {t("chemicals.calcTitle", "ICAR NPK Fertilizer Bag Calculator")}
           </div>
           <span className="badge amber">Exact Urea / DAP / MOP</span>
         </div>
@@ -168,7 +173,7 @@ export default function ChemicalChat() {
         <form onSubmit={handleDosageCalc}>
           <div className="grid grid-2" style={{ gap: 10 }}>
             <div className="form-group">
-              <label>Crop</label>
+              <label>{t("common.crop", "Crop")}</label>
               <select
                 className="select"
                 value={calcForm.crop}
@@ -182,7 +187,7 @@ export default function ChemicalChat() {
               </select>
             </div>
             <div className="form-group">
-              <label>Farm Area (Acres)</label>
+              <label>{t("chemicals.area", "Farm Area (Acres)")}</label>
               <input
                 type="number"
                 step="0.5"
@@ -196,7 +201,7 @@ export default function ChemicalChat() {
 
           <div className="grid grid-3" style={{ gap: 10 }}>
             <div className="form-group">
-              <label>Soil N (kg/ha)</label>
+              <label>{t("chemicals.soilN", "Soil N (kg/ha)")}</label>
               <input
                 type="number"
                 className="input"
@@ -205,7 +210,7 @@ export default function ChemicalChat() {
               />
             </div>
             <div className="form-group">
-              <label>Soil P (kg/ha)</label>
+              <label>{t("chemicals.soilP", "Soil P (kg/ha)")}</label>
               <input
                 type="number"
                 className="input"
@@ -214,7 +219,7 @@ export default function ChemicalChat() {
               />
             </div>
             <div className="form-group">
-              <label>Soil K (kg/ha)</label>
+              <label>{t("chemicals.soilK", "Soil K (kg/ha)")}</label>
               <input
                 type="number"
                 className="input"
@@ -225,7 +230,7 @@ export default function ChemicalChat() {
           </div>
 
           <button className="btn btn-primary" type="submit" disabled={calcLoading} style={{ width: "100%" }}>
-            {calcLoading ? "Calculating..." : "Calculate Fertilizer Bags & Cost"}
+            {calcLoading ? t("common.loading", "Calculating...") : t("chemicals.btnCalc", "Calculate Fertilizer Bags & Cost")}
           </button>
         </form>
 
@@ -233,17 +238,17 @@ export default function ChemicalChat() {
           <div style={{ marginTop: 18, display: "flex", flexDirection: "column", gap: 12 }}>
             <div className="grid grid-3" style={{ gap: 10 }}>
               <div style={{ padding: 12, borderRadius: 10, background: "var(--primary-light)" }}>
-                <div className="kpi-label">Urea (45kg bags)</div>
+                <div className="kpi-label">{t("chemicals.ureaBags", "Urea (45kg bags)")}</div>
                 <div style={{ fontSize: "1.3rem", fontWeight: 800 }}>{calcResult.fertilizer_bags.urea_45kg_bags}</div>
                 <div style={{ fontSize: "0.76rem" }}>{calcResult.fertilizer_bags.urea_total_kg} kg total</div>
               </div>
               <div style={{ padding: 12, borderRadius: 10, background: "var(--info-light)" }}>
-                <div className="kpi-label">DAP (50kg bags)</div>
+                <div className="kpi-label">{t("chemicals.dapBags", "DAP (50kg bags)")}</div>
                 <div style={{ fontSize: "1.3rem", fontWeight: 800 }}>{calcResult.fertilizer_bags.dap_50kg_bags}</div>
                 <div style={{ fontSize: "0.76rem" }}>{calcResult.fertilizer_bags.dap_total_kg} kg total</div>
               </div>
               <div style={{ padding: 12, borderRadius: 10, background: "var(--accent-light)" }}>
-                <div className="kpi-label">MOP (50kg bags)</div>
+                <div className="kpi-label">{t("chemicals.mopBags", "MOP (50kg bags)")}</div>
                 <div style={{ fontSize: "1.3rem", fontWeight: 800 }}>{calcResult.fertilizer_bags.mop_50kg_bags}</div>
                 <div style={{ fontSize: "0.76rem" }}>{calcResult.fertilizer_bags.mop_total_kg} kg total</div>
               </div>

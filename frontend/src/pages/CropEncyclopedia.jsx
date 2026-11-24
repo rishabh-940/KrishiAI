@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { BookOpen, Search, ArrowLeft } from "lucide-react";
 import { krishiApi, extractErrorMessage } from "../services/api";
 import { LoadingSpinner, ErrorBanner } from "../components/Feedback";
 
 export default function CropEncyclopedia() {
+  const { t, i18n } = useTranslation();
   const [crops, setCrops] = useState([]);
   const [selected, setSelected] = useState(null);
   const [search, setSearch] = useState("");
   const [season, setSeason] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
+  const isHindi = i18n.language?.startsWith("hi");
 
   useEffect(() => {
     setLoading(true);
@@ -24,13 +28,13 @@ export default function CropEncyclopedia() {
     return (
       <div className="card">
         <button className="btn btn-secondary" onClick={() => setSelected(null)} style={{ marginBottom: 16 }}>
-          <ArrowLeft size={16} /> Back to All Indian Crops
+          <ArrowLeft size={16} /> {t("encyclopedia.backBtn", "Back to All Indian Crops")}
         </button>
 
         <div className="card-header">
           <div>
             <h2 style={{ fontSize: "1.4rem", fontWeight: 800 }}>
-              {selected.name} ({selected.hindiName})
+              {isHindi && selected.hindiName ? `${selected.hindiName} (${selected.name})` : `${selected.name} (${selected.hindiName})`}
             </h2>
             <p style={{ fontSize: "0.86rem", color: "var(--text-muted)", fontStyle: "italic" }}>
               {selected.scientificName} • {selected.category} • {selected.season}
@@ -41,32 +45,32 @@ export default function CropEncyclopedia() {
 
         <div className="grid grid-3" style={{ marginBottom: 18 }}>
           <div style={{ padding: 14, borderRadius: 10, background: "var(--surface-alt)" }}>
-            <div className="kpi-label">Climate & Rainfall</div>
+            <div className="kpi-label">{t("encyclopedia.climateRainfall", "Climate & Rainfall")}</div>
             <div style={{ fontSize: "0.86rem", marginTop: 4 }}>
-              <strong>Temp:</strong> {selected.climate.tempC}<br />
-              <strong>Rainfall:</strong> {selected.climate.rainfallMm}<br />
-              <strong>Humidity:</strong> {selected.climate.humidity}
+              <strong>{t("common.temperature", "Temp")}:</strong> {selected.climate.tempC}<br />
+              <strong>{t("common.rainfall", "Rainfall")}:</strong> {selected.climate.rainfallMm}<br />
+              <strong>{t("common.humidity", "Humidity")}:</strong> {selected.climate.humidity}
             </div>
           </div>
           <div style={{ padding: 14, borderRadius: 10, background: "var(--surface-alt)" }}>
-            <div className="kpi-label">Soil & Seed Rate</div>
+            <div className="kpi-label">{t("encyclopedia.soilSeed", "Soil & Seed Rate")}</div>
             <div style={{ fontSize: "0.86rem", marginTop: 4 }}>
-              <strong>Soil:</strong> {selected.soil}<br />
-              <strong>Seed Rate:</strong> {selected.seedRate}
+              <strong>{t("encyclopedia.soil", "Soil")}:</strong> {selected.soil}<br />
+              <strong>{t("encyclopedia.seedRate", "Seed Rate")}:</strong> {selected.seedRate}
             </div>
           </div>
           <div style={{ padding: 14, borderRadius: 10, background: "var(--surface-alt)" }}>
-            <div className="kpi-label">Nutrition & Yield</div>
+            <div className="kpi-label">{t("encyclopedia.nutritionYield", "Nutrition & Yield")}</div>
             <div style={{ fontSize: "0.86rem", marginTop: 4 }}>
-              <strong>NPK:</strong> {selected.fertilizerNPK}<br />
-              <strong>Expected Yield:</strong> {selected.expectedYield}
+              <strong>{t("encyclopedia.npk", "NPK")}:</strong> {selected.fertilizerNPK}<br />
+              <strong>{t("common.yield", "Expected Yield")}:</strong> {selected.expectedYield}
             </div>
           </div>
         </div>
 
         <div className="grid grid-2">
           <div>
-            <h3 style={{ fontSize: "1rem", marginBottom: 8 }}>Step-by-Step Cultivation Method</h3>
+            <h3 style={{ fontSize: "1rem", marginBottom: 8 }}>{t("encyclopedia.cultivationMethod", "Step-by-Step Cultivation Method")}</h3>
             <ol className="list-clean">
               {selected.cultivationSteps.map((step, i) => (
                 <li key={i}>{step}</li>
@@ -74,21 +78,21 @@ export default function CropEncyclopedia() {
             </ol>
           </div>
           <div>
-            <h3 style={{ fontSize: "1rem", marginBottom: 8 }}>Critical Irrigation Stages</h3>
+            <h3 style={{ fontSize: "1rem", marginBottom: 8 }}>{t("encyclopedia.irrigationStages", "Critical Irrigation Stages")}</h3>
             <ul className="list-clean" style={{ marginBottom: 14 }}>
               {selected.irrigationSchedule.map((stage, i) => (
                 <li key={i}>{stage}</li>
               ))}
             </ul>
 
-            <h3 style={{ fontSize: "1rem", marginBottom: 8 }}>Major Pests & Diseases</h3>
+            <h3 style={{ fontSize: "1rem", marginBottom: 8 }}>{t("encyclopedia.majorPests", "Major Pests & Diseases")}</h3>
             <div className="chip-row">
               {selected.majorPestsDiseases.map((p) => (
                 <span key={p} className="badge red">{p}</span>
               ))}
             </div>
 
-            <h3 style={{ fontSize: "1rem", margin: "12px 0 8px" }}>Popular High-Yielding Varieties</h3>
+            <h3 style={{ fontSize: "1rem", margin: "12px 0 8px" }}>{t("encyclopedia.popularVarieties", "Popular High-Yielding Varieties")}</h3>
             <div className="chip-row">
               {selected.popularVarieties.map((v) => (
                 <span key={v} className="badge blue">{v}</span>
@@ -105,9 +109,9 @@ export default function CropEncyclopedia() {
       <div className="card">
         <div className="card-header">
           <div className="card-title">
-            <BookOpen size={19} color="var(--primary)" /> Major Indian Crops Encyclopedia
+            <BookOpen size={19} color="var(--primary)" /> {t("encyclopedia.title", "Major Indian Crops Encyclopedia")}
           </div>
-          <span className="badge">{crops.length} Crops</span>
+          <span className="badge">{crops.length} {t("common.crop", "Crops")}</span>
         </div>
 
         <ErrorBanner message={error} />
@@ -116,7 +120,7 @@ export default function CropEncyclopedia() {
           <div style={{ flex: 1, minWidth: 220, position: "relative" }}>
             <input
               className="input"
-              placeholder="Search by crop name, Hindi name, or state (e.g., Wheat, सरसों, Rajasthan)..."
+              placeholder={t("encyclopedia.searchPlaceholder", "Search by crop name, Hindi name, or state (e.g., Wheat, सरसों, Rajasthan)...")}
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
@@ -127,7 +131,7 @@ export default function CropEncyclopedia() {
               className={`chip ${season === s ? "active" : ""}`}
               onClick={() => setSeason(s)}
             >
-              {s || "All Seasons"}
+              {s ? (isHindi ? (s === "Kharif" ? "खरीफ" : s === "Rabi" ? "रबी" : "वार्षिक") : s) : t("common.allSeasons", "All Seasons")}
             </button>
           ))}
         </div>
@@ -152,17 +156,17 @@ export default function CropEncyclopedia() {
                   <span className="badge amber">{crop.category}</span>
                 </div>
                 <p style={{ fontSize: "0.84rem", marginBottom: 6 }}>
-                  <strong>Season:</strong> {crop.season}
+                  <strong>{t("common.season", "Season")}:</strong> {isHindi && crop.season === "Kharif" ? "खरीफ" : isHindi && crop.season === "Rabi" ? "रबी" : crop.season}
                 </p>
                 <p style={{ fontSize: "0.84rem", marginBottom: 6 }}>
-                  <strong>Yield:</strong> {crop.expectedYield}
+                  <strong>{t("common.yield", "Yield")}:</strong> {crop.expectedYield}
                 </p>
                 <p style={{ fontSize: "0.8rem", color: "var(--text-muted)", marginBottom: 12 }}>
-                  <strong>Top States:</strong> {crop.majorStates.slice(0, 4).join(", ")}
+                  <strong>{t("common.state", "Top States")}:</strong> {crop.majorStates.slice(0, 4).join(", ")}
                 </p>
               </div>
               <button className="btn btn-secondary" onClick={() => setSelected(crop)} style={{ width: "100%" }}>
-                <Search size={15} /> Read Full Cultivation Guide
+                <Search size={15} /> {t("encyclopedia.viewPlaybook", "Read Full Cultivation Guide")}
               </button>
             </div>
           ))}

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { CloudSun, MapPin, Droplets, Wind, Thermometer } from "lucide-react";
 import { krishiApi, extractErrorMessage } from "../services/api";
 import { LoadingSpinner, ErrorBanner } from "../components/Feedback";
 
 export default function WeatherAdvisory() {
+  const { t } = useTranslation();
   const [city, setCity] = useState("Kota");
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -52,7 +54,7 @@ export default function WeatherAdvisory() {
       <div className="card">
         <div className="card-header">
           <div className="card-title">
-            <CloudSun size={19} color="var(--primary)" /> Hyperlocal Agri-Weather & Spray Window
+            <CloudSun size={19} color="var(--primary)" /> {t("weather.title", "Hyperlocal Agri-Weather & Spray Window")}
           </div>
           <span className="badge">Open-Meteo 100% Free API</span>
         </div>
@@ -69,52 +71,52 @@ export default function WeatherAdvisory() {
           <input
             className="input"
             style={{ flex: 1, minWidth: 220 }}
-            placeholder="Enter City / District (e.g., Kota, Nashik, Indore, Ludhiana)"
+            placeholder={t("weather.cityPlaceholder", "Enter City / District (e.g., Kota, Nashik, Indore, Ludhiana)")}
             value={city}
             onChange={(e) => setCity(e.target.value)}
           />
           <button className="btn btn-primary" type="submit" disabled={loading}>
-            Get Forecast
+            {t("weather.btnForecast", "Get Forecast")}
           </button>
           <button className="btn btn-secondary" type="button" onClick={handleUseGPS} disabled={loading}>
-            <MapPin size={16} /> Use My GPS Location
+            <MapPin size={16} /> {t("weather.btnGps", "Use My GPS Location")}
           </button>
         </form>
       </div>
 
-      {loading && <LoadingSpinner label="Fetching live weather & computing agricultural advisories..." />}
+      {loading && <LoadingSpinner label={t("weather.loading", "Fetching live weather & computing agricultural advisories...")} />}
 
       {data && !loading && (
         <>
           <div className="grid grid-4">
             <div className="card">
-              <div className="kpi-label">Location</div>
+              <div className="kpi-label">{t("weather.location", "Location")}</div>
               <div style={{ fontSize: "1.15rem", fontWeight: 800, margin: "6px 0" }}>{data.location_name}</div>
               <span className="badge blue">{data.data_source}</span>
             </div>
             <div className="card">
-              <div className="kpi-label"><Thermometer size={14} /> Current Temp</div>
+              <div className="kpi-label"><Thermometer size={14} /> {t("weather.tempNow", "Current Temp")}</div>
               <div className="kpi-value">{data.current.temperature_c}°C</div>
               <span className="badge">{data.current.condition}</span>
             </div>
             <div className="card">
-              <div className="kpi-label"><Droplets size={14} /> Humidity</div>
+              <div className="kpi-label"><Droplets size={14} /> {t("common.humidity", "Humidity")}</div>
               <div className="kpi-value">{data.current.humidity_pct}%</div>
               <span className="badge amber">Pest Risk: {data.pest_risk_level}</span>
             </div>
             <div className="card">
-              <div className="kpi-label"><Wind size={14} /> Wind Speed</div>
+              <div className="kpi-label"><Wind size={14} /> {t("weather.colWind", "Wind Speed")}</div>
               <div className="kpi-value">{data.current.wind_speed_kmh} km/h</div>
-              <span className="badge">Rain: {data.current.precipitation_mm} mm</span>
+              <span className="badge">{t("common.rainfall", "Rain")}: {data.current.precipitation_mm} mm</span>
             </div>
           </div>
 
           <div className="card">
             <div className="card-header">
-              <div className="card-title">Actionable Farm Advisories</div>
+              <div className="card-title">{t("weather.sprayWindow", "Actionable Farm Advisories")}</div>
             </div>
             <p style={{ marginBottom: 12, fontWeight: 600, color: "var(--primary-dark)" }}>
-              Irrigation Advice: {data.irrigation_recommendation}
+              {t("weather.irrigationAdvice", "Irrigation Advice")}: {data.irrigation_recommendation}
             </p>
             <div className="grid grid-2">
               {data.agri_advisories.map((adv, idx) => (
@@ -140,18 +142,18 @@ export default function WeatherAdvisory() {
 
           <div className="card">
             <div className="card-header">
-              <div className="card-title">7-Day Forecast & Spraying Suitability</div>
+              <div className="card-title">{t("weather.sevenDay", "7-Day Forecast & Spraying Suitability")}</div>
             </div>
             <div className="table-wrap">
               <table>
                 <thead>
                   <tr>
-                    <th>Date</th>
-                    <th>Condition</th>
-                    <th>Min / Max °C</th>
-                    <th>Rain (mm / %)</th>
-                    <th>Wind</th>
-                    <th>Spray Window</th>
+                    <th>{t("weather.colDate", "Date")}</th>
+                    <th>{t("common.statusLabel", "Condition")}</th>
+                    <th>{t("weather.colTemp", "Min / Max °C")}</th>
+                    <th>{t("weather.colRain", "Rain (mm / %)")}</th>
+                    <th>{t("weather.colWind", "Wind")}</th>
+                    <th>{t("weather.colSpray", "Spray Window")}</th>
                   </tr>
                 </thead>
                 <tbody>

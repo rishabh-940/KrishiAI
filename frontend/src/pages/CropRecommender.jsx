@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Sprout } from "lucide-react";
 import { krishiApi, extractErrorMessage } from "../services/api";
 import { LoadingSpinner, ErrorBanner } from "../components/Feedback";
 
 export default function CropRecommender() {
+  const { t } = useTranslation();
   const [form, setForm] = useState({
     nitrogen: 95,
     phosphorus: 50,
@@ -38,7 +40,7 @@ export default function CropRecommender() {
       <form className="card" onSubmit={handleSubmit}>
         <div className="card-header">
           <div className="card-title">
-            <Sprout size={19} color="var(--primary)" /> Smart Crop Recommendation & Profit ML
+            <Sprout size={19} color="var(--primary)" /> {t("recommender.title", "Smart Crop Recommendation & Profit ML")}
           </div>
           <span className="badge">Soil + Climate ML</span>
         </div>
@@ -47,13 +49,13 @@ export default function CropRecommender() {
 
         <div className="grid grid-2" style={{ gap: 10 }}>
           {[
-            ["nitrogen", "Soil Nitrogen (N, kg/ha)"],
-            ["phosphorus", "Soil Phosphorus (P, kg/ha)"],
-            ["potassium", "Soil Potassium (K, kg/ha)"],
-            ["ph", "Soil pH (3.0 - 10.0)"],
-            ["temperature", "Avg Temperature (°C)"],
-            ["humidity", "Relative Humidity (%)"],
-            ["rainfall", "Seasonal Rainfall (mm)"],
+            ["nitrogen", t("recommender.nitrogen", "Soil Nitrogen (N, kg/ha)")],
+            ["phosphorus", t("recommender.phosphorus", "Soil Phosphorus (P, kg/ha)")],
+            ["potassium", t("recommender.potassium", "Soil Potassium (K, kg/ha)")],
+            ["ph", t("recommender.ph", "Soil pH (3.0 - 10.0)")],
+            ["temperature", t("recommender.temperature", "Avg Temperature (°C)")],
+            ["humidity", t("recommender.humidity", "Relative Humidity (%)")],
+            ["rainfall", t("recommender.rainfall", "Seasonal Rainfall (mm)")],
             ["area_acres", "Cultivable Area (Acres)"],
           ].map(([key, label]) => (
             <div className="form-group" key={key}>
@@ -71,13 +73,13 @@ export default function CropRecommender() {
         </div>
 
         <button className="btn btn-primary" type="submit" disabled={loading} style={{ width: "100%" }}>
-          {loading ? "Running ML Classifier..." : "Predict Best Crops & Expected Profit"}
+          {loading ? t("recommender.btnRecommending", "Running ML Classifier...") : t("recommender.btnRecommend", "Predict Best Crops & Expected Profit")}
         </button>
       </form>
 
       <div className="card">
         <div className="card-header">
-          <div className="card-title">Top ML-Ranked Crop Recommendations</div>
+          <div className="card-title">{t("recommender.rankedRecommendations", "Top ML-Ranked Crop Recommendations")}</div>
           {result && <span className="badge blue">{result.model_engine}</span>}
         </div>
 
@@ -85,8 +87,7 @@ export default function CropRecommender() {
 
         {!loading && !result && (
           <p style={{ color: "var(--text-muted)", fontSize: "0.9rem" }}>
-            Enter your Soil Health Card values and local climate on the left to get ML-ranked crop
-            recommendations, soil fertility grading, and estimated net profit for your farm size.
+            {t("recommender.emptyState", "Enter your Soil Health Card values and local climate on the left to get ML-ranked crop recommendations, soil fertility grading, and estimated net profit for your farm size.")}
           </p>
         )}
 
