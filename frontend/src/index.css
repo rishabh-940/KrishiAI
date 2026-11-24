@@ -387,7 +387,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 14px;
 }
 
@@ -397,6 +397,8 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
+  flex: 1;
+  min-width: 0;
 }
 
 .kpi-value {
@@ -412,31 +414,55 @@ body {
   font-weight: 600;
 }
 
+/* ========================================================
+   Clean, Proportionate & Consistent Badges / Tags
+   ======================================================== */
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  justify-content: center;
+  gap: 6px;
   padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 0.74rem;
-  font-weight: 700;
+  min-height: 24px;
+  border-radius: 6px; /* Elegant, modern curved tag shape avoiding deformed pill capsules */
+  font-size: 0.73rem;
+  font-weight: 600;
+  line-height: 1.25;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
   background: var(--primary-light);
   color: var(--primary-dark);
+  border: 1px solid rgba(21, 128, 61, 0.16);
+  flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 .badge.amber {
   background: var(--accent-light);
   color: #92400e;
+  border-color: rgba(217, 119, 6, 0.22);
 }
 
 .badge.red {
   background: var(--danger-light);
   color: #991b1b;
+  border-color: rgba(220, 38, 38, 0.2);
 }
 
 .badge.blue {
   background: var(--info-light);
-  color: #075985;
+  color: #0369a1;
+  border-color: rgba(2, 132, 199, 0.22);
+}
+
+/* Specific styling for table status tags to guarantee uniform alignment */
+td .badge {
+  min-width: 96px;
+  text-align: center;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  padding: 4px 8px;
 }
 
 .form-group {
@@ -586,19 +612,33 @@ body {
 .chip-row {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 8px;
   margin-bottom: 12px;
 }
 
+.chip-row .badge {
+  min-height: 26px;
+  padding: 4px 10px;
+  font-size: 0.74rem;
+}
+
 .chip {
-  padding: 6px 12px;
-  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  padding: 5px 12px;
+  border-radius: 6px;
   background: var(--surface-alt);
   border: 1px solid var(--border);
   font-size: 0.78rem;
   font-weight: 600;
   color: var(--primary-dark);
   cursor: pointer;
+  line-height: 1.25;
+  white-space: nowrap;
+  transition: all 0.16s ease;
 }
 
 .chip:hover,
@@ -606,6 +646,7 @@ body {
   background: var(--primary);
   color: #ffffff;
   border-color: var(--primary);
+  box-shadow: 0 2px 6px rgba(21, 128, 61, 0.2);
 }
 
 .error-banner {
