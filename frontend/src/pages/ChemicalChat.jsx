@@ -80,7 +80,17 @@ export default function ChemicalChat() {
   }
 
   return (
-    <div className="grid grid-2">
+    <div className="grid" style={{ gap: 20 }}>
+      {/* Hero Banner — Input & Crop Care Guidance */}
+      <div className="page-hero-banner" style={{ height: 215 }}>
+        <img
+          src="/images/chemicals-banner.png"
+          alt="Input & Crop Care Guidance"
+          className="page-hero-img"
+        />
+      </div>
+
+      <div className="grid grid-2">
       <div className="card">
         <div className="card-header">
           <div className="card-title">
@@ -273,5 +283,6 @@ export default function ChemicalChat() {
         )}
       </div>
     </div>
+  </div>
   );
 }

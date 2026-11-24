@@ -49,6 +49,15 @@ export default function SchemesAdvisor() {
 
   return (
     <div className="grid" style={{ gap: 20 }}>
+      {/* Hero Banner — Agricultural Schemes & Farmer Support */}
+      <div className="page-hero-banner" style={{ height: 215 }}>
+        <img
+          src="/images/schemes-banner.png"
+          alt="Agricultural Schemes & Farmer Support"
+          className="page-hero-img"
+        />
+      </div>
+
       <div className="card">
         <div className="card-header">
           <div className="card-title">

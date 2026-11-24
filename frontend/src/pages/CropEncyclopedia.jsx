@@ -106,6 +106,15 @@ export default function CropEncyclopedia() {
 
   return (
     <div className="grid" style={{ gap: 18 }}>
+      {/* Hero Banner — Indian Crops Reference Library */}
+      <div className="page-hero-banner" style={{ height: 220 }}>
+        <img
+          src="/images/encyclopedia-banner.png"
+          alt="Indian Crops Reference Library"
+          className="page-hero-img"
+        />
+      </div>
+
       <div className="card">
         <div className="card-header">
           <div className="card-title">

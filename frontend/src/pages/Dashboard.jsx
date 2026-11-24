@@ -6,7 +6,7 @@ import { LoadingSpinner, ErrorBanner } from "../components/Feedback";
 
 const QUICK_MODULES = [
   { id: "disease", titleKey: "dashboard.modules.disease.title", descKey: "dashboard.modules.disease.desc", defaultTitle: "Plant Disease AI", defaultDesc: "Dual HuggingFace Vision DL models (94 + 38 classes)", icon: ScanLine },
-  { id: "schemes", titleKey: "dashboard.modules.schemes.title", descKey: "dashboard.modules.schemes.desc", defaultTitle: "Govt Schemes (AgriParam)", defaultDesc: "BharatGen AgriParam LLM + PM-KISAN / PMFBY / KCC", icon: Landmark },
+  { id: "schemes", titleKey: "dashboard.modules.schemes.title", descKey: "dashboard.modules.schemes.desc", defaultTitle: "Govt Schemes ", defaultDesc: "BharatGen AgriParam LLM + PM-KISAN / PMFBY / KCC", icon: Landmark },
   { id: "chemicals", titleKey: "dashboard.modules.chemicals.title", descKey: "dashboard.modules.chemicals.desc", defaultTitle: "Chemicals & NPK Chat", defaultDesc: "Hindi/English Qwen2.5-3B + Fertilizer Bag Calculator", icon: FlaskConical },
   { id: "prices", titleKey: "dashboard.modules.prices.title", descKey: "dashboard.modules.prices.desc", defaultTitle: "Mandi Price Forecast", defaultDesc: "India APMC Mandi Time-Series ML Forecaster", icon: TrendingUp },
   { id: "recommender", titleKey: "dashboard.modules.recommender.title", descKey: "dashboard.modules.recommender.desc", defaultTitle: "Smart Crop ML", defaultDesc: "Soil N-P-K + Climate Crop Recommender & Profit", icon: Sprout },
@@ -37,6 +37,15 @@ export default function Dashboard({ onNavigate }) {
   return (
     <div className="grid" style={{ gap: 22 }}>
       <ErrorBanner message={error} />
+
+      {/* Hero Banner — Farm Overview & Smart Insights */}
+      <div className="page-hero-banner">
+        <img
+          src="/images/dashboard-banner.png"
+          alt="Farm Overview & Smart Insights"
+          className="page-hero-img"
+        />
+      </div>
 
       <div className="grid grid-4">
         <div className="card">

@@ -82,6 +82,15 @@ export default function PricePredictor() {
 
   return (
     <div className="grid" style={{ gap: 20 }}>
+      {/* Hero Banner — Mandi Price Forecasting */}
+      <div className="page-hero-banner" style={{ height: 215 }}>
+        <img
+          src="/images/prices-banner.png"
+          alt="Mandi Price Forecasting"
+          className="page-hero-img"
+        />
+      </div>
+
       <form className="card" onSubmit={handlePredict}>
         <div className="card-header">
           <div className="card-title">

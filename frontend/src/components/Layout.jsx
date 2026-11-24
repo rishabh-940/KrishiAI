@@ -19,7 +19,7 @@ import {
 const NAV_ITEMS = [
   { id: "dashboard", labelKey: "nav.dashboard", defaultLabel: "Dashboard", sectionKey: "sections.overview", defaultSection: "Overview", icon: LayoutDashboard },
   { id: "disease", labelKey: "nav.disease", defaultLabel: "Crop Disease AI", sectionKey: "sections.aiModules", defaultSection: "AI / DL / ML Modules", icon: ScanLine },
-  { id: "schemes", labelKey: "nav.schemes", defaultLabel: "Govt Schemes (AgriParam)", sectionKey: "sections.aiModules", defaultSection: "AI / DL / ML Modules", icon: Landmark },
+  { id: "schemes", labelKey: "nav.schemes", defaultLabel: "Govt Schemes", sectionKey: "sections.aiModules", defaultSection: "AI / DL / ML Modules", icon: Landmark },
   { id: "chemicals", labelKey: "nav.chemicals", defaultLabel: "Chemicals & NPK Chat", sectionKey: "sections.aiModules", defaultSection: "AI / DL / ML Modules", icon: FlaskConical },
   { id: "prices", labelKey: "nav.prices", defaultLabel: "Mandi Price Forecast", sectionKey: "sections.aiModules", defaultSection: "AI / DL / ML Modules", icon: TrendingUp },
   { id: "recommender", labelKey: "nav.recommender", defaultLabel: "Smart Crop ML", sectionKey: "sections.aiModules", defaultSection: "AI / DL / ML Modules", icon: Sprout },
@@ -33,7 +33,7 @@ export default function Layout({ activeTab, setActiveTab, aiHealthy, children })
   const [menuOpen, setMenuOpen] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const currentMeta = NAV_ITEMS.find((n) => n.id === activeTab) || NAV_ITEMS[0];
-  
+
   const sectionList = [
     { key: "sections.overview", fallback: "Overview" },
     { key: "sections.aiModules", fallback: "AI / DL / ML Modules" },
